@@ -709,3 +709,57 @@ footer {
         font-size: 1rem;
     }
 }
+/* Default styles for navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #111;
+}
+
+/* Hide hamburger menu on larger screens */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;  /* Hide by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+}
