@@ -34,6 +34,7 @@ body {
     transition: transform 0.1s ease;
 }
 
+
 .cursor-glow {
     position: fixed;
     width: 200px;
@@ -62,6 +63,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.logoimge{
+    position: relative;
+    height: 2em;
+    width: 2em;
 }
 
 .logo {
@@ -761,5 +767,52 @@ nav {
         padding: 10px;
         color: white;
         text-decoration: none;
+    }
+}
+/* Logo styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(31, 233, 255, 0.5);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 30px;
+    }
+    
+    .logo-text {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 25px;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
     }
 }
