@@ -73,6 +73,16 @@ nav {
     color: transparent;
     text-shadow: 0 0 10px rgba(31, 233, 255, 0.5);
 }
+a i {
+    font-size: 30px;
+    color: #e4405f;
+    transition: transform 0.3s ease;
+}
+
+a i:hover {
+    transform: scale(1.2);
+}
+
 
 .nav-links {
     display: flex;
