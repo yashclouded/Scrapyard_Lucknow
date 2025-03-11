@@ -816,3 +816,225 @@ nav {
         font-size: 1.3rem;
     }
 }
+/* Schedule Section Styles */
+#schedule {
+    background-color: rgba(11, 11, 19, 0.7);
+    position: relative;
+}
+
+.schedule-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(7, 7, 17, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(31, 233, 255, 0.2);
+    border: 1px solid rgba(31, 233, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 80px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--neon-blue), var(--neon-pink));
+    box-shadow: 0 0 15px rgba(31, 233, 255, 0.5);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+}
+
+.time-block {
+    width: 160px;
+    text-align: right;
+    padding-right: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.time {
+    background-color: rgba(7, 7, 17, 0.8);
+    padding: 8px 15px;
+    border-radius: 50px;
+    color: var(--neon-blue);
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(31, 233, 255, 0.3);
+    border: 1px solid rgba(31, 233, 255, 0.3);
+}
+
+.event-block {
+    flex: 1;
+    background-color: rgba(7, 7, 17, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 3px solid var(--neon-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-block::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--neon-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(31, 233, 255, 0.7);
+    z-index: 2;
+}
+
+.event-block h3 {
+    margin-bottom: 5px;
+    color: var(--neon-blue);
+    font-size: 1.3rem;
+}
+
+.event-block p {
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+/* Highlight important events */
+.timeline-item.highlight .event-block {
+    border-left: 3px solid var(--neon-pink);
+    background: linear-gradient(135deg, rgba(7, 7, 17, 0.8), rgba(31, 233, 255, 0.1));
+}
+
+.timeline-item.highlight .event-block::before {
+    background-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+.timeline-item.highlight .time {
+    color: var(--neon-pink);
+    border-color: rgba(255, 0, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.timeline-item.highlight .event-block h3 {
+    color: var(--neon-pink);
+}
+
+/* Grand finale styling */
+.timeline-item.grand-finale .event-block {
+    border-left: 3px solid var(--neon-green);
+    background: linear-gradient(135deg, rgba(7, 7, 17, 0.8), rgba(0, 255, 159, 0.1));
+    animation: glow 2s infinite alternate;
+}
+
+.timeline-item.grand-finale .event-block::before {
+    background-color: var(--neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 159, 0.7);
+    width: 16px;
+    height: 16px;
+    left: -18px;
+}
+
+.timeline-item.grand-finale .time {
+    color: var(--neon-green);
+    border-color: rgba(0, 255, 159, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 159, 0.5);
+}
+
+.timeline-item.grand-finale .event-block h3 {
+    color: var(--neon-green);
+    font-size: 1.5rem;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(0, 255, 159, 0.2);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 255, 159, 0.5);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 30px;
+    }
+    
+    .time-block {
+        width: 100px;
+        padding-right: 20px;
+        font-size: 0.9rem;
+    }
+    
+    .time {
+        padding: 6px 10px;
+    }
+    
+    .event-block h3 {
+        font-size: 1.1rem;
+    }
+    
+    .event-block p {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-item.grand-finale .event-block h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline {
+        padding-left: 0;
+    }
+    
+    .timeline-line {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .time-block {
+        width: 100%;
+        text-align: left;
+        padding-left: 40px;
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .event-block {
+        margin-left: 40px;
+    }
+    
+    .event-block::before {
+        left: -36px;
+        top: -22px;
+    }
+    
+    .timeline-item.grand-finale .event-block::before {
+        left: -38px;
+        top: -22px;
+    }
+}
